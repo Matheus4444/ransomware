@@ -1,0 +1,3 @@
+Seus arquivos foram criptografados!
+Para descriptografá-los, envie 1 Bitcoin para o endereço X e envie o comprovante.
+Após o pagamento, você receberá a chave de descriptografia.
